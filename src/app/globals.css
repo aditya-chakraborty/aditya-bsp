@@ -13,6 +13,34 @@
   --accent-green: #218358;
   --check-green: #30a46c;
   --overlay: rgba(0, 0, 0, 0.5);
+  --header-bg: #ffffff;
+  --header-border: #f2eff3;
+  --subheader-bg: rgba(255, 255, 255, 0.8);
+  --subheader-border: #f2eff3;
+  --divider: rgba(20, 0, 53, 0.15);
+  --content-bg: #f7f6fc;
+  --sidebar-bg: rgba(48, 0, 64, 0.06);
+  --sidebar-top-gradient: linear-gradient(to bottom, #f7f6fc, rgba(247, 246, 252, 0));
+  --sidebar-bottom-gradient: linear-gradient(
+    to top,
+    rgba(254, 207, 207, 0.35),
+    rgba(247, 246, 252, 0)
+  );
+  --day-indicator-bg: #ffffff;
+  --card-border: #eae7ec;
+  --card-strong-border: rgba(20, 0, 53, 0.15);
+  --icon-btn-border: rgba(8, 0, 49, 0.27);
+  --reaction-btn-border: rgba(32, 0, 54, 0.09);
+  --submission-bg: #e6f6eb;
+  --submission-title: #218358;
+  --drawer-btn-bg: #1f1d2d;
+  --drawer-btn-fg: #fdfcfd;
+  --drawer-grad-1: rgba(231, 241, 255, 0.6);
+  --drawer-grad-2: rgba(228, 246, 237, 0.62);
+  --drawer-grad-3: rgba(247, 246, 252, 0.32);
+  --drawer-grad-end: #ffffff;
+  --sidebar-day-text: rgba(4, 0, 17, 0.61);
+  --sidebar-day-text-active: #211f26;
 }
 
 @theme inline {
@@ -23,18 +51,42 @@
 }
 
 :root[data-theme="dark"] {
-  --background: #16131f;
-  --surface: #201b2b;
-  --surface-soft: #272133;
-  --surface-muted: #2a2236;
-  --foreground: #f5f2fb;
-  --muted-foreground: rgba(245, 242, 251, 0.72);
-  --border: rgba(234, 231, 236, 0.2);
-  --border-strong: rgba(234, 231, 236, 0.35);
-  --badge: rgba(255, 255, 255, 0.09);
-  --accent-green: #56ba88;
-  --check-green: #49c782;
+  --background: #030303;
+  --surface: #1a191b;
+  --surface-soft: #1a191b;
+  --surface-muted: #2b292d;
+  --foreground: #eeeef0;
+  --muted-foreground: rgba(245, 241, 255, 0.72);
+  --border: #2b292d;
+  --border-strong: #2b292d;
+  --badge: rgba(235, 234, 248, 0.08);
+  --accent-green: #3dd68c;
+  --check-green: #30a46c;
   --overlay: rgba(3, 0, 9, 0.62);
+  --header-bg: #1a191b;
+  --header-border: #232225;
+  --subheader-bg: rgba(29, 29, 33, 0.7);
+  --subheader-border: #232225;
+  --divider: rgba(241, 230, 253, 0.19);
+  --content-bg: #030303;
+  --sidebar-bg: rgba(235, 234, 248, 0.08);
+  --sidebar-top-gradient: linear-gradient(to bottom, #030303, rgba(3, 3, 3, 0));
+  --sidebar-bottom-gradient: linear-gradient(to top, #030303, rgba(3, 3, 3, 0));
+  --day-indicator-bg: #000000;
+  --card-border: #2b292d;
+  --card-strong-border: #2b292d;
+  --icon-btn-border: rgba(238, 231, 255, 0.36);
+  --reaction-btn-border: rgba(238, 229, 248, 0.11);
+  --submission-bg: #132d21;
+  --submission-title: #3dd68c;
+  --drawer-btn-bg: #eeeef0;
+  --drawer-btn-fg: #1a191b;
+  --drawer-grad-1: rgba(80, 88, 117, 0.28);
+  --drawer-grad-2: rgba(58, 92, 78, 0.24);
+  --drawer-grad-3: rgba(26, 25, 27, 0.7);
+  --drawer-grad-end: #1a191b;
+  --sidebar-day-text: rgba(245, 241, 255, 0.72);
+  --sidebar-day-text-active: #ffffff;
 }
 
 :root:not([data-theme]) {
@@ -43,18 +95,42 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --background: #16131f;
-    --surface: #201b2b;
-    --surface-soft: #272133;
-    --surface-muted: #2a2236;
-    --foreground: #f5f2fb;
-    --muted-foreground: rgba(245, 242, 251, 0.72);
-    --border: rgba(234, 231, 236, 0.2);
-    --border-strong: rgba(234, 231, 236, 0.35);
-    --badge: rgba(255, 255, 255, 0.09);
-    --accent-green: #56ba88;
-    --check-green: #49c782;
+    --background: #030303;
+    --surface: #1a191b;
+    --surface-soft: #1a191b;
+    --surface-muted: #2b292d;
+    --foreground: #eeeef0;
+    --muted-foreground: rgba(245, 241, 255, 0.72);
+    --border: #2b292d;
+    --border-strong: #2b292d;
+    --badge: rgba(235, 234, 248, 0.08);
+    --accent-green: #3dd68c;
+    --check-green: #30a46c;
     --overlay: rgba(3, 0, 9, 0.62);
+    --header-bg: #1a191b;
+    --header-border: #232225;
+    --subheader-bg: rgba(29, 29, 33, 0.7);
+    --subheader-border: #232225;
+    --divider: rgba(241, 230, 253, 0.19);
+    --content-bg: #030303;
+    --sidebar-bg: rgba(235, 234, 248, 0.08);
+    --sidebar-top-gradient: linear-gradient(to bottom, #030303, rgba(3, 3, 3, 0));
+    --sidebar-bottom-gradient: linear-gradient(to top, #030303, rgba(3, 3, 3, 0));
+    --day-indicator-bg: #000000;
+    --card-border: #2b292d;
+    --card-strong-border: #2b292d;
+    --icon-btn-border: rgba(238, 231, 255, 0.36);
+    --reaction-btn-border: rgba(238, 229, 248, 0.11);
+    --submission-bg: #132d21;
+    --submission-title: #3dd68c;
+    --drawer-btn-bg: #eeeef0;
+    --drawer-btn-fg: #1a191b;
+    --drawer-grad-1: rgba(80, 88, 117, 0.28);
+    --drawer-grad-2: rgba(58, 92, 78, 0.24);
+    --drawer-grad-3: rgba(26, 25, 27, 0.7);
+    --drawer-grad-end: #1a191b;
+    --sidebar-day-text: rgba(245, 241, 255, 0.72);
+    --sidebar-day-text-active: #ffffff;
   }
 
   :root {

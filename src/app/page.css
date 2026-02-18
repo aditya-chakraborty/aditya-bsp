@@ -10,8 +10,8 @@
 .bp-header-top {
   height: 60px;
   padding: 14px 24px;
-  border-bottom: 1px solid #f2eff3;
-  background: var(--surface);
+  border-bottom: 1px solid var(--header-border);
+  background: var(--header-bg);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,7 +53,7 @@
   width: 32px;
   height: 32px;
   border-radius: 999px;
-  border: 1px solid rgba(8, 0, 49, 0.27);
+  border: 1px solid var(--icon-btn-border);
   background: transparent;
   color: var(--foreground);
   display: inline-flex;
@@ -72,8 +72,8 @@
 .bp-header-sub {
   height: 56px;
   padding: 0 24px 0 18px;
-  border-bottom: 1px solid #f2eff3;
-  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid var(--subheader-border);
+  background: var(--subheader-bg);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
@@ -105,7 +105,7 @@
 .bp-divider-vertical {
   width: 1px;
   height: 24px;
-  background: rgba(20, 0, 53, 0.15);
+  background: var(--divider);
 }
 
 .bp-day-title {
@@ -135,14 +135,14 @@
   min-height: 0;
   display: flex;
   gap: 0;
-  background: #f7f6fc;
+  background: var(--content-bg);
   overflow: hidden;
 }
 
 .bp-sidebar {
   width: 258px;
   flex: 0 0 258px;
-  background: rgba(48, 0, 64, 0.06);
+  background: var(--sidebar-bg);
   position: relative;
   overflow: hidden;
 }
@@ -151,7 +151,7 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 56px;
-  background: linear-gradient(to bottom, #f7f6fc, rgba(247, 246, 252, 0));
+  background: var(--sidebar-top-gradient);
   z-index: 2;
 }
 
@@ -159,7 +159,7 @@
   position: absolute;
   inset: auto 0 0 0;
   height: 120px;
-  background: linear-gradient(to top, rgba(254, 207, 207, 0.35), rgba(247, 246, 252, 0));
+  background: var(--sidebar-bottom-gradient);
   z-index: 2;
 }
 
@@ -180,7 +180,7 @@
   right: 0;
   height: 48px;
   border-radius: 24px 0 0 24px;
-  background: #fff;
+  background: var(--day-indicator-bg);
   transition: transform 220ms ease;
   pointer-events: none;
 }
@@ -212,7 +212,7 @@
   bottom: -12px;
   width: 24px;
   height: 24px;
-  background: #fff;
+  background: var(--day-indicator-bg);
   border-top-left-radius: 24px;
   pointer-events: none;
   corner-shape: scoop;
@@ -230,7 +230,7 @@
   top: -12px;
   width: 24px;
   height: 24px;
-  background: #fff;
+  background: var(--day-indicator-bg);
   border-bottom-left-radius: 24px;
   pointer-events: none;
   corner-shape: scoop;
@@ -240,11 +240,11 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
-  color: var(--muted-foreground);
+  color: var(--sidebar-day-text);
 }
 
 .bp-day-text.active {
-  color: var(--foreground);
+  color: var(--sidebar-day-text-active);
   font-weight: 600;
 }
 
@@ -276,7 +276,7 @@
 .bp-submission-wrap {
   width: 640px;
   border-radius: 24px;
-  background: #e6f6eb;
+  background: var(--submission-bg);
   padding-top: 12px;
   overflow: hidden;
 }
@@ -286,9 +286,9 @@
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
-  color: #218358;
+  color: var(--submission-title);
   min-height: 32px;
-  background-color: #e6f6eb;
+  background-color: var(--submission-bg);
   background-image: url("/BG.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -296,7 +296,7 @@
 }
 
 .bp-card {
-  border: 1px solid #eae7ec;
+  border: 1px solid var(--card-border);
   border-radius: 24px;
   background: var(--surface);
   overflow: hidden;
@@ -340,6 +340,19 @@
   font-size: 22px;
   color: var(--foreground);
   line-height: 1;
+  border-radius: 10px;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.bp-more:hover {
+  background: var(--badge);
+}
+
+.bp-more:focus-visible {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
 }
 
 .bp-text {
@@ -410,16 +423,29 @@
 .bp-circle-btn {
   width: 32px;
   height: 32px;
-  border: 1px solid rgba(32, 0, 54, 0.09);
+  border: 1px solid var(--reaction-btn-border);
   background: var(--badge);
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.bp-circle-btn:hover {
+  background: var(--surface-muted);
+  border-color: var(--border);
+}
+
+.bp-circle-btn:focus-visible {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
 }
 
 .bp-shared {
-  border: 1px solid rgba(20, 0, 53, 0.15);
+  border: 1px solid var(--card-strong-border);
   border-radius: 24px;
   background: var(--surface);
   padding: 16px 12px 12px;
@@ -444,7 +470,7 @@
 }
 
 .bp-pinned {
-  border-bottom: 1px solid #eae7ec;
+  border-bottom: 1px solid var(--card-border);
   padding: 8px 12px;
   display: flex;
   align-items: center;
@@ -502,9 +528,9 @@
   width: 100%;
   height: 378px;
   background:
-    radial-gradient(120% 85% at 14% 0%, rgba(231, 241, 255, 0.6) 0%, rgba(255, 255, 255, 0) 62%),
-    radial-gradient(115% 85% at 84% 0%, rgba(228, 246, 237, 0.62) 0%, rgba(255, 255, 255, 0) 60%),
-    linear-gradient(180deg, rgba(247, 246, 252, 0.32) 0%, #ffffff 100%);
+    radial-gradient(120% 85% at 14% 0%, var(--drawer-grad-1) 0%, rgba(255, 255, 255, 0) 62%),
+    radial-gradient(115% 85% at 84% 0%, var(--drawer-grad-2) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(180deg, var(--drawer-grad-3) 0%, var(--drawer-grad-end) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -625,8 +651,8 @@
   height: 48px;
   border-radius: 999px;
   border: 0;
-  background: #1f1d2d;
-  color: #fdfcfd;
+  background: var(--drawer-btn-bg);
+  color: var(--drawer-btn-fg);
   font-size: 18px;
   line-height: 26px;
   font-weight: 500;
@@ -793,7 +819,7 @@
     width: 100%;
     flex: 0 0 auto;
     border-right: 0;
-    border-bottom: 1px solid #f2eff3;
+    border-bottom: 1px solid var(--header-border);
   }
 
   .bp-sidebar-list {

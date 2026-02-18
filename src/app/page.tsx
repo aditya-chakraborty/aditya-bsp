@@ -4,21 +4,21 @@
 import { useEffect, useMemo, useState } from "react";
 import { Dialog, DropdownMenu, Switch, Tooltip } from "radix-ui";
 import {
-  Bell,
-  CaretLeft,
-  ChatCircle,
-  CheckCircle,
-  Circle,
-  DotsThree,
-  Info,
-  LockSimple,
-  Moon,
-  Play,
-  PushPin,
-  SignOut,
-  Smiley,
-  Sun,
-  X,
+  BellIcon,
+  CaretLeftIcon,
+  ChatCircleIcon,
+  CheckCircleIcon,
+  CircleIcon,
+  DotsThreeIcon,
+  InfoIcon,
+  LockSimpleIcon,
+  MoonIcon,
+  PlayIcon,
+  PushPinIcon,
+  SignOutIcon,
+  SmileyIcon,
+  SunIcon,
+  XIcon,
 } from "@phosphor-icons/react";
 import "./page.css";
 
@@ -36,19 +36,23 @@ const dayList: Day[] = [
   { id: 9, label: "Day - 9" },
 ];
 
-const baseDay = 3;
+const baseDay = 2;
 type ThemeMode = "light" | "dark";
 const SIDEBAR_ROW_HEIGHT = 48;
 const SIDEBAR_ROW_GAP = 12;
 
 function isLocked(id: number, selectedDay: number) {
-  return id > selectedDay + 1;
+  return id > selectedDay;
 }
 
-function Logo() {
+function Logo({ theme }: { theme: ThemeMode }) {
   return (
     <div className="bp-logo">
-      <img alt="BackstagePass" className="bp-logo-image" src="/bts_logo.svg" />
+      <img
+        alt="BackstagePass"
+        className="bp-logo-image"
+        src={theme === "dark" ? "/BackstagePass LogoDark.svg" : "/bts_logo.svg"}
+      />
     </div>
   );
 }
@@ -87,13 +91,13 @@ function UserMenuDropdown({
               onCheckedChange={onThemeToggle}
             >
               <Switch.Thumb className="bp-theme-switch-thumb">
-                {theme === "dark" ? <Moon size={13} /> : <Sun size={13} />}
+                {theme === "dark" ? <MoonIcon size={13} /> : <SunIcon size={13} />}
               </Switch.Thumb>
             </Switch.Root>
           </div>
           <DropdownMenu.Item asChild>
             <button className="bp-logout-btn" onClick={onLogout} type="button">
-              <SignOut size={16} /> Logout
+              <SignOutIcon size={16} /> Logout
             </button>
           </DropdownMenu.Item>
         </DropdownMenu.Content>
@@ -114,14 +118,14 @@ function Header({
   return (
     <>
       <header className="bp-header-top">
-        <Logo />
+        <Logo theme={theme} />
         <div className="bp-header-actions">
           <button className="bp-streak-pill">🔥 30</button>
           <Tooltip.Provider delayDuration={150}>
             <Tooltip.Root>
               <Tooltip.Trigger asChild>
                 <button className="bp-icon-btn">
-                  <Bell size={16} />
+                  <BellIcon size={16} />
                 </button>
               </Tooltip.Trigger>
               <Tooltip.Portal>
@@ -145,15 +149,15 @@ function Header({
       <header className="bp-header-sub">
         <div className="bp-header-sub-left">
           <button className="bp-back-btn">
-            <CaretLeft size={18} /> Back
+            <CaretLeftIcon size={18} /> Back
           </button>
           <span className="bp-divider-vertical" />
-          <p className="bp-day-title">Day 3 of 9</p>
+          <p className="bp-day-title">Day 2 of 9</p>
         </div>
         <button className="bp-header-title" onClick={onInfo}>
           9-Day Fitness Challenge{" "}
           <span>
-            <Info size={20} />
+            <InfoIcon size={20} />
           </span>
         </button>
       </header>
@@ -186,21 +190,22 @@ function Sidebar({
             "bp-day-row",
             isPrevOfSelected ? "bp-day-row-prev" : "",
             isNextOfSelected ? "bp-day-row-next" : "",
+            locked ? "cursor-not-allowed" : "",
           ]
             .filter(Boolean)
             .join(" ");
           return (
-            <button className={rowClassName} key={day.id} onClick={() => onDayClick(day.id)}>
+            <button className={rowClassName} key={day.id} onClick={() => onDayClick(day.id)} disabled={locked}>
               <span className={day.id === selectedDay ? "bp-day-text active" : "bp-day-text"}>
                 {day.label}
               </span>
               <span className="bp-day-icon">
                 {locked ? (
-                  <LockSimple size={18} weight="fill" />
+                  <LockSimpleIcon size={18} weight="fill" />
                 ) : completed ? (
-                  <CheckCircle size={18} weight="fill" color="var(--check-green)" />
+                  <CheckCircleIcon size={18} weight="fill" color="var(--check-green)" />
                 ) : (
-                  <Circle size={18} />
+                  <CircleIcon size={18} />
                 )}
               </span>
             </button>
@@ -227,7 +232,7 @@ function SubmissionCard() {
             <p className="bp-time">1d</p>
           </div>
           <button className="bp-more">
-            <DotsThree size={20} weight="bold" />
+            <DotsThreeIcon size={20} weight="bold" />
           </button>
         </div>
         <p className="bp-text">Today&apos;s challenge workout completed-feeling stronger already</p>
@@ -237,17 +242,17 @@ function SubmissionCard() {
             src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1280&q=80"
           />
           <button className="bp-play">
-            <Play size={20} weight="fill" />
+            <PlayIcon size={20} weight="fill" />
           </button>
         </div>
         <div className="bp-reaction-row">
           <div className="bp-reactions">
             <span className="bp-reaction-pill">🙏 😍 18</span>
             <button className="bp-circle-btn">
-              <Smiley size={18} />
+              <SmileyIcon size={18} />
             </button>
             <button className="bp-circle-btn">
-              <ChatCircle size={18} />
+              <ChatCircleIcon size={18} />
             </button>
           </div>
           <p>10 Comments</p>
@@ -266,7 +271,7 @@ function SharedSection() {
       </div>
       <article className="bp-card">
         <div className="bp-pinned">
-          <PushPin size={13} weight="fill" /> This is a pinned post
+          <PushPinIcon size={13} weight="fill" /> This is a pinned post
         </div>
         <div className="bp-card-profile">
           <img
@@ -279,7 +284,7 @@ function SharedSection() {
             <p className="bp-time">3 hrs ago</p>
           </div>
           <button className="bp-more">
-            <DotsThree size={20} weight="bold" />
+            <DotsThreeIcon size={20} weight="bold" />
           </button>
         </div>
         <div className="bp-shared-content">
@@ -306,7 +311,7 @@ function Drawer({ open, onClose }: { open: boolean; onClose: () => void }) {
           <header className="bp-drawer-header">
             <Dialog.Close asChild>
               <button aria-label="Close challenge description" className="bp-close">
-                <X size={18} />
+                <XIcon size={18} />
               </button>
             </Dialog.Close>
             <Dialog.Title asChild>
