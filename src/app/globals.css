@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f6fc;
+  --surface: #ffffff;
+  --surface-soft: #faf9fb;
+  --surface-muted: #f2eff3;
+  --foreground: #211f26;
+  --muted-foreground: rgba(4, 0, 17, 0.61);
+  --border: #eae7ec;
+  --border-strong: rgba(20, 0, 53, 0.15);
+  --badge: rgba(48, 0, 64, 0.06);
+  --accent-green: #218358;
+  --check-green: #30a46c;
+  --overlay: rgba(0, 0, 0, 0.5);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-be-vietnam-pro);
+  --font-logo: var(--font-sarabun);
+}
+
+:root[data-theme="dark"] {
+  --background: #16131f;
+  --surface: #201b2b;
+  --surface-soft: #272133;
+  --surface-muted: #2a2236;
+  --foreground: #f5f2fb;
+  --muted-foreground: rgba(245, 242, 251, 0.72);
+  --border: rgba(234, 231, 236, 0.2);
+  --border-strong: rgba(234, 231, 236, 0.35);
+  --badge: rgba(255, 255, 255, 0.09);
+  --accent-green: #56ba88;
+  --check-green: #49c782;
+  --overlay: rgba(3, 0, 9, 0.62);
+}
+
+:root:not([data-theme]) {
+  color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme]) {
+    --background: #16131f;
+    --surface: #201b2b;
+    --surface-soft: #272133;
+    --surface-muted: #2a2236;
+    --foreground: #f5f2fb;
+    --muted-foreground: rgba(245, 242, 251, 0.72);
+    --border: rgba(234, 231, 236, 0.2);
+    --border-strong: rgba(234, 231, 236, 0.35);
+    --badge: rgba(255, 255, 255, 0.09);
+    --accent-green: #56ba88;
+    --check-green: #49c782;
+    --overlay: rgba(3, 0, 9, 0.62);
   }
+
+  :root {
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
+  margin: 0;
 }
