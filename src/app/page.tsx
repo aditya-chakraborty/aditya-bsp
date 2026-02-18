@@ -383,11 +383,13 @@ export default function Home() {
       />
       <div className="bp-main">
         <Sidebar onDayClick={setSelectedDay} selectedDay={normalizedDay} />
-        <section className="bp-feed-col">
-          <SubmissionCard />
-          <SharedSection />
+        <section className="bp-content-pane">
+          <div className="bp-feed-col">
+            <SubmissionCard />
+            <SharedSection />
+          </div>
         </section>
-        </div>
+      </div>
       <Drawer onClose={() => setDrawerOpen(false)} open={drawerOpen} />
     </div>
   );

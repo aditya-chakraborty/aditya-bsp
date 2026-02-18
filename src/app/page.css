@@ -139,6 +139,18 @@
   overflow: hidden;
 }
 
+.bp-content-pane {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding: 24px 12px;
+}
+
 .bp-sidebar {
   width: 258px;
   flex: 0 0 258px;
@@ -255,18 +267,10 @@
 
 .bp-feed-col {
   width: 640px;
-  max-width: calc(100% - 24px);
-  min-height: 0;
-  height: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  margin: 0 auto;
-  overflow-y: auto;
-  overflow-x: hidden;
-  overscroll-behavior: contain;
 }
 
 .bp-feed-col > * {
@@ -274,7 +278,7 @@
 }
 
 .bp-submission-wrap {
-  width: 640px;
+  width: 100%;
   border-radius: 24px;
   background: var(--submission-bg);
   padding-top: 12px;
@@ -798,7 +802,7 @@
 
   .bp-feed-col,
   .bp-submission-wrap {
-    width: min(640px, calc(100vw - 320px));
+    width: min(640px, 100%);
   }
 }
 
@@ -841,14 +845,13 @@
     background: var(--surface);
   }
 
+  .bp-content-pane {
+    padding: 16px 12px 24px;
+  }
+
   .bp-feed-col,
   .bp-submission-wrap {
     width: 100%;
-  }
-
-  .bp-feed-col {
-    padding: 16px 12px 24px;
-    max-width: 100%;
   }
 
   .bp-drawer-header h3,
