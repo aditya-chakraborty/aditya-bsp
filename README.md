@@ -14,7 +14,7 @@ The goal was to build a pixel-conscious, production-like UI screen for a "9-Day 
 - Interact with header actions and user controls.
 - Switch between light and dark themes with preference persistence.
 
-### Technical requirements interpreted from the implementation
+### Technical requirements interpreted from the understanding
 
 - Use Next.js with a client-rendered page (`src/app/page.tsx`) for interactive state.
 - Keep layout and typography globally consistent in `src/app/layout.tsx` and `src/app/globals.css`.
@@ -23,7 +23,7 @@ The goal was to build a pixel-conscious, production-like UI screen for a "9-Day 
 - Preserve responsive behavior for desktop/tablet/mobile in `src/app/page.css`.
 - Include accessible patterns where relevant (dialog title/description, semantic controls, visible interactions).
 
-### Core decisions we took
+### Core decisions I took
 
 - **Component-first page composition:** Split the screen into focused components (`Header`, `Sidebar`, `SubmissionCard`, `SharedSection`, `Drawer`, `UserMenuDropdown`, `Logo`) to simplify maintenance.
 - **Tokenized styling:** Drove visual consistency through CSS variables in `globals.css`, while keeping component layout rules in `page.css`.
@@ -119,4 +119,4 @@ Run the development server:
 npm run dev
 ```
 
-Open `http://localhost:3000` to view the project.
+Open `https://aditya-bsp.vercel.app/` to view the project.
